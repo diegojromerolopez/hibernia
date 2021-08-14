@@ -1,9 +1,9 @@
 from aiohttp import web
 
-from hibernia.server.kvstore.handles import set_handle, get_handle, del_handle
+from hibernia.server.kvstore.handlers import set_handler, get_handler, del_handler
 
 ROUTES = [
-    web.post('/{key}', set_handle),
-    web.get('/{key}', get_handle),
-    web.delete('/{key}', del_handle)
+    web.post('/{key}', set_handler),
+    web.get('/{key}', get_handler),
+    web.delete('/{key}', del_handler)
 ]

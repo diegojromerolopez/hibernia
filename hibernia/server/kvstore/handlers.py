@@ -3,7 +3,7 @@ from aiohttp import web
 from hibernia.server.kvstore.storage import KV_STORE
 
 
-async def set_handle(request):
+async def set_handler(request):
     key = request.match_info.get('key')
     val = await request.text()
     stored = KV_STORE.set(key, val)
@@ -12,13 +12,13 @@ async def set_handle(request):
     return web.Response(status=201)
 
 
-async def get_handle(request):
+async def get_handler(request):
     key = request.match_info.get('key')
     value = KV_STORE.get(key)
     return web.Response(body=value, status=200)
 
 
-async def del_handle(request):
+async def del_handler(request):
     key = request.match_info.get('key')
     found = KV_STORE.del_item(key)
     if not found:
