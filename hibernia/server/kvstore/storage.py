@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Final
 
 from gelidum.collections import frozendict
 
@@ -25,4 +25,4 @@ class KVStore(object):
         return False
 
 
-KV_STORE = KVStore()
+KV_STORE: Final[KVStore] = KVStore()
